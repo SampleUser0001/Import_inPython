@@ -1,15 +1,36 @@
-# Template Python on Docker
+# import in Python
 
-## 使い方
+## 概要
 
-1. Dockerfileのimageを変更する。
-2. 必要に応じてDockerfileにpipを書く。
-3. 必要に応じてdocker-compose.ymlを修正する。
-4. 下記実行。
-    ``` sh
-    docker-compose build
-    docker-compose up
-    ```
+- Pythonで「モジュール」はファイルを指す。
+- 「from」はモジュールの指定。
+- 「import」はクラスの指定。
+- ```sys.path.append('./util')```は、```python```コマンド実行ディレクトリからの相対パスを指定する。
+
+## ディレクトリ構成
+
+``` txt
+.
+├── src
+│   ├── app.py
+│   └── util
+│       ├── __pycache__
+│       └── SampleUtil.py
+└── start.sh
+```
+
+### app.pyからutil/SampleUtil.pyを参照する
+
+``` python app.py
+import sys
+sys.path.append('./util')
+from SampleUtil import SampleUtil
+
+# hello_worldはクラスメソッド。
+SampleUtil.hello_world()
+```
+
+
 
 ## 参考
 
