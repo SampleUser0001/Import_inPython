@@ -36,3 +36,4 @@ SampleUtil.hello_world()
 
 - [Qiita:Docker を使う（python のイメージで色々確認してみる）](https://qiita.com/landwarrior/items/fd918da9ebae20486b81)
 - [Future Tech Blog:仕事でPythonコンテナをデプロイする人向けのDockerfile (1): オールマイティ編](https://future-architect.github.io/articles/20200513/)
+- [Python3 自作モジュールのインポートにハマる:かもメモ](https://chaika.hatenablog.com/entry/2018/08/24/090000)
