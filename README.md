@@ -23,6 +23,7 @@
 
 ``` python app.py
 import sys
+# 検索対象のパスを追加する。
 sys.path.append('./util')
 from SampleUtil import SampleUtil
 
