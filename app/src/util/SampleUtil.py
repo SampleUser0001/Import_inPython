@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
-import sys
-sys.path.append('./')
-from util.tmp.sample import SampleUtil02
+from util.tmp.common import SampleUtil02
 
 class SampleUtil:
 

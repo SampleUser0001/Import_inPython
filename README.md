@@ -5,7 +5,6 @@
 - Pythonで「モジュール」はファイルを指す。
 - 「from」はモジュールの指定。
 - 「import」はクラスの指定。
-- ```sys.path.append('./util')```は、```python```コマンド実行ディレクトリからの相対パスを指定する。
 
 ## ディレクトリ構成
 
@@ -22,16 +21,46 @@
 ### app.pyからutil/SampleUtil.pyを参照する
 
 ``` python app.py
-import sys
-# 検索対象のパスを追加する。
-sys.path.append('./util')
-from SampleUtil import SampleUtil
+# import sys
+# sys.pathからモジュールを探す。
+# pythonコマンド実行ディレクトリは最初から含まれているので、この環境では./src/utilを探しに行く。
+from util.SampleUtil import SampleUtil
 
 # hello_worldはクラスメソッド。
 SampleUtil.hello_world()
 ```
 
+### 備考
 
+#### 循環importはできない
+
+この実装パターンはNG。
+
+common.py
+
+``` python
+
+from sub01 import Sub01
+
+class Common():
+  # superクラスの定義
+
+class Factory():
+  # サブクラスのインスタンスを生成するクラス
+```
+
+sub01.py
+
+``` python
+
+from common import Common
+
+class Sub01(Common):
+  # superクラスの定義
+  
+```
+
+こういう時はFactoryを別のモジュールにする等の対応を行う。
 
 ## 参考
 
